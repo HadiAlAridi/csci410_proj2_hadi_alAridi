@@ -13,7 +13,7 @@ class Lemonade {
   final double price;
   final String category;
   final String imageUrl;
-  String comment; // New field for storing the user's comment
+  String comment;
 
   Lemonade(this.id, this.name, this.description, this.price, this.category, this.imageUrl, {this.comment = ''});
 
@@ -139,7 +139,6 @@ class _ShowLemonadesState extends State<ShowLemonades> {
                   child: Text('Save'),
                   onPressed: () {
                     setState(() {
-                      // Save the comment to the selected lemonade
                       lemonades[index].comment = comment;
                       selectedIndex = index;
                     });
