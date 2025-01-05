@@ -13,9 +13,9 @@ class Lemonade {
   final double price;
   final String category;
   final String imageUrl;
-  String comment;
+  String comments;
 
-  Lemonade(this.id, this.name, this.description, this.price, this.category, this.imageUrl, {this.comment = ''});
+  Lemonade(this.id, this.name, this.description, this.price, this.category, this.imageUrl, {this.comments = ''});
 
   @override
   String toString() {
@@ -58,7 +58,7 @@ class ShowLemonades extends StatefulWidget {
 
 class _ShowLemonadesState extends State<ShowLemonades> {
   String selectedSize = 'Medium'; 
-  String comment = ''; 
+  String comments = ''; 
   int selectedIndex = -1; 
 
   @override
@@ -72,11 +72,11 @@ class _ShowLemonadesState extends State<ShowLemonades> {
           children: [
             Text(lemonades[index].description),
             Text('Price: \$${lemonades[index].price}'),
-            if (lemonades[index].comment.isNotEmpty)
+            if (lemonades[index].comments.isNotEmpty)
               Padding(
                 padding: const EdgeInsets.only(top: 8.0),
                 child: Text(
-                  'Comment: ${lemonades[index].comment}',
+                  'comments: ${lemonades[index].comments}',
                   style: TextStyle(color: Colors.orange),
                 ),
               ),
@@ -122,7 +122,7 @@ class _ShowLemonadesState extends State<ShowLemonades> {
                     ),
                     onChanged: (value) {
                       setState(() {
-                        comment = value;
+                        comments = value;
                       });
                     },
                   ),
@@ -139,7 +139,7 @@ class _ShowLemonadesState extends State<ShowLemonades> {
                   child: Text('Save'),
                   onPressed: () {
                     setState(() {
-                      lemonades[index].comment = comment;
+                      lemonades[index].comments = comments;
                       selectedIndex = index;
                     });
                     Navigator.of(context).pop();
